@@ -38,7 +38,7 @@ from setuptools import setup
 
 
 setup(name='damejson',
-      version='0.0.6',
+      version='0.0.8',
       description='Learning Json from Tests by David Arroyo Menéndez',
 #      long_description=readme(),
       classifiers=[
@@ -56,7 +56,7 @@ setup(name='damejson',
       package_dir={'damejson': 'damejson', 'damejson.tests': 'damejson/tests', 'damejson.files': 'damejson/files'},
       package_data={'damejson.tests': ['*'],
                     'damejson.files': ['*']},
-      data_files=[('damejson', ['damejson/runtests.sh'])],
+      data_files=[('damejson', ['damejson/runtests.sh', 'damejson/files/exer1-interface-data.json'])],
       install_requires=[
           'markdown',
       ],
