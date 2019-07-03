@@ -29,7 +29,7 @@ def my_test_suite():
     test_loader = unittest.TestLoader()
     test_suite = test_loader.discover('tests', pattern='test_*.py')
     return test_suite
-            
+
 from setuptools import setup
 
 # def readme():
@@ -38,7 +38,7 @@ from setuptools import setup
 
 
 setup(name='damejson',
-      version='0.0.1',
+      version='0.0.6',
       description='Learning Json from Tests by David Arroyo Menéndez',
 #      long_description=readme(),
       classifiers=[
@@ -52,10 +52,11 @@ setup(name='damejson',
       author='David Arroyo Menéndez',
       author_email='davidam@gnu.org',
       license='GPLv3',
-      packages=['damejson', 'damejson.tests'],
+      packages=['damejson', 'damejson.tests', 'damejson.files'],
       package_dir={'damejson': 'damejson', 'damejson.tests': 'damejson/tests', 'damejson.files': 'damejson/files'},
       package_data={'damejson.tests': ['*'],
                     'damejson.files': ['*']},
+      data_files=[('damejson', ['damejson/runtests.sh'])],
       install_requires=[
           'markdown',
       ],
