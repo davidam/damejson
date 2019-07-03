@@ -28,13 +28,12 @@ class TestDameJson(unittest.TestCase):
 
     def test_damejson_load(self):
         # using read and loads to open
-        jsondata = open('files/exer1-interface-data.json').read()
+        fh = open('files/exer1-interface-data.json')
+        jsondata = fh.read()
         json_object = json.loads(jsondata)
+        fh.close()
         self.assertEqual(int(json_object['totalCount']), 400)
-        # using open and load to open
-        with open('files/exer1-interface-data.json') as json_data:
-            d = json.load(json_data)
-        self.assertEqual(int(d['totalCount']), 400)
+
 
     def test_damejson_dumps(self):
         self.assertEqual('["foo", {"bar": ["baz", 1.0, 2]}]', json.dumps(['foo', {'bar': ('baz', 1.0, 2)}]))
