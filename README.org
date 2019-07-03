@@ -1,4 +1,9 @@
 
+* To execute tests:
+#+BEGIN_SRC sh
+$ ./runtests.sh
+#+END_SRC
+
 * Pypi
 + To install from local:
 #+BEGIN_SRC sh
