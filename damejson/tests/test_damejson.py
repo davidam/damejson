@@ -23,6 +23,7 @@
 
 import unittest
 import json
+import pandas as pd
 
 class TestDameJson(unittest.TestCase):
 
@@ -40,6 +41,17 @@ class TestDameJson(unittest.TestCase):
         self.assertEqual(json.dumps({"c": 0, "b": 0, "a": 0}, sort_keys=True), '{"a": 0, "b": 0, "c": 0}')
         tup1 = 'Red', 'Black', 'White';
         self.assertEqual(json.dumps(tup1), '["Red", "Black", "White"]')
+
+    def test_damejson_pandas(self):
+        df = pd.DataFrame([['a', 'b'], ['c', 'd']], index=['row 1', 'row 2'], columns=['col 1', 'col 2'])
+        split = df.to_json(orient='split')
+        self.assertEqual('{"columns":["col 1","col 2"],"index":["row 1","row 2"],"data":[["a","b"],["c","d"]]}', split)
+        l = df.to_json(orient='values')
+        self.assertEqual('[["a","b"],["c","d"]]', l)
+        rec = df.to_json(orient='records')
+        self.assertEqual('[{"col 1":"a","col 2":"b"},{"col 1":"c","col 2":"d"}]', rec)
+        val = df.to_json(orient='values')
+        self.assertEqual('[["a","b"],["c","d"]]', val)
 
 if __name__ == '__main__':
     unittest.main()
