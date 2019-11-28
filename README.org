@@ -1,7 +1,9 @@
 
 * To execute tests:
 #+BEGIN_SRC sh
+$ cd damejson
 $ ./runtests.sh
+$ nosetests3 tests
 #+END_SRC
 
 * Pypi
