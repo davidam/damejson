@@ -31,16 +31,18 @@ def my_test_suite():
     return test_suite
 
 from setuptools import setup
+from os import path
 
-# def readme():
-#     with open('README.org') as f:
-#         return f.read()
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 
 setup(name='damejson',
-      version='0.0.8',
+      version='0.0.9',
       description='Learning Json from Tests by David Arroyo Menéndez',
-#      long_description=readme(),
+      long_description=long_description,
+      long_description_content_type='text/markdown',      
       classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
