@@ -34,15 +34,14 @@ from setuptools import setup
 from os import path
 
 this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with open(path.join(this_directory, 'README.md')) as f:
     long_description = f.read()
 
-
+    
 setup(name='damejson',
-      version='0.0.9',
+      version='0.0.12',
       description='Learning Json from Tests by David Arroyo Menéndez',
       long_description=long_description,
-      long_description_content_type='text/markdown',      
       classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
